@@ -1,0 +1,96 @@
+﻿@model IEnumerable<CarAllListingServiceModel>
+@{
+    ViewData["Title"] = "Cars";
+}
+
+<h1 class="container">All of out Cars</h1>
+
+<div class="col-md-12">
+    <a class="btn btn-primary btn-md" asp-area="Cars" asp-controller="Cars" asp-action="Create">Sell Car</a>
+</div>
+
+@foreach (var car in Model)
+{
+    <div class="container col-md-4">
+        <img width="400" height="200" src="@car.ImageUrl" />
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Price $
+                    </th>
+                    <th>
+                        HP
+                    </th>
+                    <th>
+                        Year
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Transmittion
+                    </th>
+                    <th>
+                        Travelled Distance
+                    </th>
+                    <th>
+                        Color
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                </tr>
+                <tr></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        @car.Model
+                    </th>
+                    <th>
+                        @car.Price
+                    </th>
+                    <th>
+                        @car.HorsePower
+                    </th>
+                    <th>
+                        @car.YearOfProduction
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @car.TypeOfTransmission
+                    </th>
+                    <th>
+                        @car.TravelledDistance
+                    </th>
+                    <th>
+                        @car.Color
+                    </th>
+                    <th>
+                        @car.BodyType
+                    </th>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-primary btn-md" href="/customers/buy/@car.Id">Buy</a></td>
+                    @if (User.IsInRole(WebConstants.AdministratorRole))
+                    {
+                        <td colspan="2"><a class="btn btn-primary btn-md" href="/customers/buy/@car.Id">Edit</a></td>
+                        <td><a class="btn btn-danger btn-md" href="/cars/delete/@car.Id">Delete</a></td>
+                    }
+                    else if (User.IsInRole(WebConstants.NormalCustomerRole))
+                    {
+                        <td colspan="2"><a class="btn btn-primary btn-md" href="/customers/buy/@car.Id">Edit</a></td>
+                        @if (car.UserId == User.Identity.GetUserId())
+                        {
+                            <td><a class="btn btn-danger btn-md" href="/cars/delete/@car.Id">Delete</a></td>
+                        }
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

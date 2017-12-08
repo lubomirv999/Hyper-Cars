@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PartAllListingServiceModel>
+@{
+    ViewData["Title"] = "Parts";
+}
+<h1 class="container">All of out Parts</h1>
+
+<div class="col-md-12">
+    <a class="btn btn-primary btn-md" asp-area="Parts" asp-controller="Parts" asp-action="Create">Sell Part</a>
+</div>
+
+@foreach (var part in Model)
+{
+    <div class="container col-md-4">
+        <img width="300" height="200" src="@part.ImageUrl" />
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price $
+                    </th>
+                    <th>
+                        Condition
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        @part.Name
+                    </th>
+                    <th>
+                        @part.Price
+                    </th>
+                    <th>
+                        @part.Condition
+                    </th>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-primary btn-md" href="/customers/buy/@part.Id">Buy</a></td>
+                    @if (User.IsInRole(WebConstants.AdministratorRole))
+                    {
+                        <td colspan="1"><a class="btn btn-primary btn-md" href="/customers/buy/@part.Id">Buy</a></td>
+                        <td><a class="btn btn-danger btn-md" href="/parts/delete/@part.Id">Delete</a></td>
+                    }
+                    else if (User.IsInRole(WebConstants.NormalCustomerRole))
+                    {
+                        @if (part.UserId == User.Identity.GetUserId())
+                        {
+                            <td><a class="btn btn-danger btn-md" href="/part/delete/@part.Id">Delete</a></td>
+                        }
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

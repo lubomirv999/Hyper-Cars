@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" PrivateAssets="All" />
@@ -24,6 +25,11 @@
     <ProjectReference Include="..\HyperCars.Core\HyperCars.Core.csproj" />
     <ProjectReference Include="..\HyperCars.Data\HyperCars.Data.csproj" />
     <ProjectReference Include="..\HyperCars.Services\HyperCars.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Cars\Models\" />
+    <Folder Include="Areas\Parts\Models\" />
   </ItemGroup>
 
 </Project>

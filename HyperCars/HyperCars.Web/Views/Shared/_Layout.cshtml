@@ -34,7 +34,12 @@
                     @if (User.IsInRole(WebConstants.AdministratorRole))
                     {
                         <li><a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a></li>
-                    }                                        
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="Cars" asp-controller="Cars" asp-action="Index">Cars</a></li>
+                        <li><a asp-area="Parts" asp-controller="Parts" asp-action="Index">Parts</a></li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

@@ -19,6 +19,12 @@
 
         public Condition Condition { get; set; }
 
+        [Required]
+        [MinLength(PartImageUrlMinLength)]
+        [MaxLength(PartImageUrlMaxLength)]
+        public string ImageUrl { get; set; }
+
+        [Required]
         public string UserId { get; set; }
 
         public User User { get; set; }

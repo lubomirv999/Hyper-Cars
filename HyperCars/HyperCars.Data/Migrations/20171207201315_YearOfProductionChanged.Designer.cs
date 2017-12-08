@@ -3,12 +3,14 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Infrastructure;
     using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.EntityFrameworkCore.Migrations;
     using System;
 
     [DbContext(typeof(HyperCarsDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171207201315_YearOfProductionChanged")]
+    partial class YearOfProductionChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +30,6 @@
 
                     b.Property<int>("HorsePower");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(1000);
-
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(100);
@@ -42,8 +40,7 @@
 
                     b.Property<int>("TypeOfTransmission");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+                    b.Property<string>("UserId");
 
                     b.Property<int>("YearOfProduction");
 
@@ -61,18 +58,13 @@
 
                     b.Property<int>("Condition");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(1000);
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<decimal>("Price");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -246,16 +238,14 @@
                 {
                     b.HasOne("HyperCars.Data.Models.User", "User")
                         .WithMany("Cars")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("HyperCars.Data.Models.Part", b =>
                 {
                     b.HasOne("HyperCars.Data.Models.User", "User")
                         .WithMany("Parts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
