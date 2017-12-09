@@ -8,5 +8,17 @@
     public interface ICarService
     {
         Task<IEnumerable<CarAllListingServiceModel>> AllAsync();
+
+        bool Add(
+            string model,
+            decimal price,
+            BodyType bodyType,
+            TypeOfTransmission typeOfTransmission,
+            double TravelledDistance,
+            int yearOfProduction,
+            int horsePower,
+            string color,
+            string imageUrl,
+            string userId);
     }
 }

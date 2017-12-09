@@ -27,9 +27,4 @@
     <ProjectReference Include="..\HyperCars.Services\HyperCars.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Cars\Models\" />
-    <Folder Include="Areas\Parts\Models\" />
-  </ItemGroup>
-
 </Project>
