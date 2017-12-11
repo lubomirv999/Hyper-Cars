@@ -25,8 +25,8 @@
         [Range(CarMinTravelledDistance, CarMaxTravelledDistance)]
         public double TravelledDistance { get; set; }
 
-        [Display(Name = "Year of production")]
-        public int YearOfProduction { get; set; }
+        [Display(Name = "Production year")]
+        public int ProductionYear { get; set; }
 
         [Display(Name = "Horse power")]
         [Range(CarMinHorsePower, CarMaxHorsePower)]

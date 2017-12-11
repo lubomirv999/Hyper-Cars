@@ -3,12 +3,14 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Infrastructure;
     using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.EntityFrameworkCore.Migrations;
     using System;
 
     [DbContext(typeof(HyperCarsDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171211144903_DbCompleted")]
+    partial class DbCompleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,14 +40,14 @@
 
                     b.Property<decimal>("Price");
 
+                    b.Property<int>("ProductionYear");
+
                     b.Property<double>("TravelledDistance");
 
                     b.Property<int>("TypeOfTransmission");
 
                     b.Property<string>("UserId")
                         .IsRequired();
-
-                    b.Property<int>("YearOfProduction");
 
                     b.HasKey("Id");
 

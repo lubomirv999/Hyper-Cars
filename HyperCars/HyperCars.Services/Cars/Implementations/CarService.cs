@@ -27,7 +27,7 @@
                 .ProjectTo<CarAllListingServiceModel>()
                 .ToListAsync();
 
-        public bool Add(string model, decimal price, BodyType bodyType, TypeOfTransmission typeOfTransmission, double travelledDistance, int yearOfProduction, int horsePower, string color, string imageUrl, string userId)
+        public bool Add(string model, decimal price, BodyType bodyType, TypeOfTransmission typeOfTransmission, double travelledDistance, int productionYear, int horsePower, string color, string imageUrl, string userId)
         {
             if (!this.db.Users.Any(u => u.Id == userId))
             {
@@ -41,7 +41,7 @@
                 BodyType = bodyType,
                 TypeOfTransmission = typeOfTransmission,
                 TravelledDistance = travelledDistance,
-                YearOfProduction = yearOfProduction,
+                ProductionYear = productionYear,
                 HorsePower = horsePower,
                 Color = color,
                 ImageUrl = imageUrl,

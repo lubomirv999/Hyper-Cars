@@ -15,7 +15,7 @@
             BodyType bodyType,
             TypeOfTransmission typeOfTransmission,
             double TravelledDistance,
-            int yearOfProduction,
+            int productionYear,
             int horsePower,
             string color,
             string imageUrl,
