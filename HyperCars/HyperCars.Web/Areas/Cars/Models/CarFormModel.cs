@@ -5,7 +5,7 @@
 
     using static Data.DataConstants;
 
-    public class AddCarFormModel
+    public class CarFormModel
     {
         [Required]
         [MinLength(CarModelMinLength)]
@@ -42,7 +42,6 @@
         [MaxLength(CarImageUrlMaxLength)]
         public string ImageUrl { get; set; }
 
-        [Required]
         public string UserId { get; set; }
     }
 }

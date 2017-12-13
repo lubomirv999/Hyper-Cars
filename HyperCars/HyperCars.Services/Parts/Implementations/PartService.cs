@@ -45,5 +45,54 @@
 
             return true;
         }
+
+        public PartAllListingServiceModel FindById(int id)
+            => this.db
+                .Parts
+                .Where(p => p.Id == id)
+                .ProjectTo<PartAllListingServiceModel>()
+                .FirstOrDefault();
+
+        public bool Exists(int id)
+            => this.db.Parts.Any(p => p.Id == id);
+
+        public void Edit(int id, string name, decimal price, Condition condition, string imageUrl)
+        {
+            if (!this.db.Parts.Any(p => p.Id == id))
+            {
+                return;
+            }
+
+            var part = this.db.Parts.Find(id);
+
+            if (part == null)
+            {
+                return;
+            }
+
+            // Editing the part
+
+            part.Name = name;
+            part.Price = price;
+            part.Condition = condition;
+            part.ImageUrl = imageUrl;
+
+            this.db.SaveChanges();
+        }
+
+        public bool DeletePart(int id)
+        {
+            var part = this.db.Parts.Find(id);
+
+            if (part == null)
+            {
+                return false;
+            }
+
+            this.db.Parts.Remove(part);
+            this.db.SaveChanges();
+
+            return true;
+        }
     }
 }

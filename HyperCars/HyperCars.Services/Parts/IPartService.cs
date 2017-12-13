@@ -15,5 +15,18 @@
             Condition condition,
             string imageUrl,
             string userId);
+
+        void Edit(
+            int id,
+            string name,
+            decimal price,
+            Condition condition,
+            string imageUrl);
+
+        PartAllListingServiceModel FindById(int id);
+
+        bool Exists(int id);
+
+        bool DeletePart(int id);
     }
 }

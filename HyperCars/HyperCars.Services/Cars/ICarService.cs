@@ -20,5 +20,23 @@
             string color,
             string imageUrl,
             string userId);
+
+        void Edit(
+            int id,
+            string model,
+            decimal price,
+            BodyType bodyType,
+            TypeOfTransmission typeOfTransmission,
+            double TravelledDistance,
+            int productionYear,
+            int horsePower,
+            string color,
+            string imageUrl);
+
+        CarAllListingServiceModel FindById(int id);
+
+        bool Exists(int id);
+
+        bool DeleteCar(int id);
     }
 }

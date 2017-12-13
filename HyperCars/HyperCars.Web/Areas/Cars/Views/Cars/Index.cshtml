@@ -75,18 +75,18 @@
                     </th>
                 </tr>
                 <tr>
-                    <td><a class="btn btn-primary btn-md" href="/customers/buy/@car.Id">Buy</a></td>
+                    <td><a class="btn btn-primary btn-md" href="/cars/buy/@car.Id">Buy</a></td>
                     @if (User.IsInRole(WebConstants.AdministratorRole))
-                    {
-                        <td colspan="2"><a class="btn btn-primary btn-md" href="/customers/buy/@car.Id">Edit</a></td>
-                        <td><a class="btn btn-danger btn-md" href="/cars/delete/@car.Id">Delete</a></td>
+                    {                        
+                        <td colspan="2"><a class="btn btn-primary btn-md" asp-area="Cars" asp-controller="Cars" asp-action="Edit" asp-route-id="@car.Id">Edit</a></td>
+                        <td colspan="2"><a class="btn btn-danger btn-md" asp-area="Cars" asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id">Remove</a></td>
                     }
-                    else if (User.IsInRole(WebConstants.NormalCustomerRole))
+                    else
                     {
-                        <td colspan="2"><a class="btn btn-primary btn-md" href="/customers/buy/@car.Id">Edit</a></td>
                         @if (car.UserId == User.Identity.GetUserId())
                         {
-                            <td><a class="btn btn-danger btn-md" href="/cars/delete/@car.Id">Delete</a></td>
+                            <td colspan="2"><a class="btn btn-primary btn-md" asp-area="Cars" asp-controller="Cars" asp-action="Edit" asp-route-id="@car.Id">Edit</a></td>
+                            <td colspan="2"><a class="btn btn-danger btn-md" asp-area="Cars" asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id">Remove</a></td>
                         }
                     }
                 </tr>

@@ -53,7 +53,6 @@
                             {
                                 Email = adminEmail,
                                 UserName = administratorName,
-                                Name = administratorName,
                             };
 
                             await userManager.CreateAsync(adminUser, "adminHyperCarsPassword_12");

@@ -5,7 +5,7 @@
 
     using static HyperCars.Data.DataConstants;
 
-    public class AddPartFormModel
+    public class PartFormModel
     {
         [Required]
         [MinLength(PartNameMinLength)]
@@ -22,7 +22,6 @@
         [MaxLength(PartImageUrlMaxLength)]
         public string ImageUrl { get; set; }
 
-        [Required]
         public string UserId { get; set; }
     }
 }
