@@ -19,8 +19,11 @@
             this.db = db;
         }        
 
-        public async Task<IEnumerable<PartAllListingServiceModel>> AllAsync() => await this.db
+        public async Task<IEnumerable<PartAllListingServiceModel>> AllAsync(int page = 1, int pageSize = 6) => await this.db
                 .Parts
+                .OrderByDescending(c => c.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ProjectTo<PartAllListingServiceModel>()
                 .ToListAsync();
 
@@ -45,6 +48,13 @@
 
             return true;
         }
+
+        public PartAllListingServiceModel Buy(int id) 
+            => this.db
+                .Parts
+                .ProjectTo<PartAllListingServiceModel>()
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
 
         public PartAllListingServiceModel FindById(int id)
             => this.db
@@ -94,5 +104,7 @@
 
             return true;
         }
+
+        public int Total() => this.db.Parts.Count();
     }
 }

@@ -1,0 +1,76 @@
+﻿@model CarFormModel
+@{
+    ViewData["Title"] = "Buy";
+}
+<h2 class="text-center">Buy car</h2>
+
+<div class="container col-md-12">    
+    <img class="col-md-12 img-responsive" height="400" src="@Model.ImageUrl" />
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Price $
+                </th>
+                <th>
+                    HP
+                </th>
+                <th>
+                    Year
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Transmittion
+                </th>
+                <th>
+                    Travelled Distance
+                </th>
+                <th>
+                    Color
+                </th>
+                <th>
+                    Type
+                </th>
+            </tr>
+            <tr></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    @Model.Model
+                </th>
+                <th>
+                    @Model.Price
+                </th>
+                <th>
+                    @Model.HorsePower
+                </th>
+                <th>
+                    @Model.ProductionYear
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    @Model.TypeOfTransmission
+                </th>
+                <th>
+                    @Model.TravelledDistance
+                </th>
+                <th>
+                    @Model.Color
+                </th>
+                <th>
+                    @Model.BodyType
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2"><a class="btn btn-primary btn-md" asp-area="Cars" asp-controller="Cars" asp-action="SuccessfullyBought">Buy</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

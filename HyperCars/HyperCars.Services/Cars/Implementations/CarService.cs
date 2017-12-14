@@ -4,7 +4,6 @@
     using Data;
     using Data.Models;
     using Data.Models.Enums;
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Services.Cars.Models;
     using System.Collections.Generic;
@@ -15,15 +14,16 @@
     {
         private readonly HyperCarsDbContext db;
 
-        public CarService(
-            HyperCarsDbContext db,
-            UserManager<User> userManager)
+        public CarService(HyperCarsDbContext db)
         {
             this.db = db;
         }
 
-        public async Task<IEnumerable<CarAllListingServiceModel>> AllAsync() => await this.db
+        public async Task<IEnumerable<CarAllListingServiceModel>> AllAsync(int page = 1, int pageSize = 6) => await this.db
                 .Cars
+                .OrderByDescending(c => c.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)                
                 .ProjectTo<CarAllListingServiceModel>()
                 .ToListAsync();
 
@@ -53,6 +53,13 @@
 
             return true;
         }
+
+        public CarAllListingServiceModel Buy(int id)
+            => this.db
+                .Cars
+                .ProjectTo<CarAllListingServiceModel>()
+                .Where(c => c.Id == id)
+                .FirstOrDefault();
 
         public CarAllListingServiceModel FindById(int id)
             => this.db
@@ -107,5 +114,7 @@
 
             return true;
         }
+
+        public int Total() => this.db.Cars.Count();
     }
 }

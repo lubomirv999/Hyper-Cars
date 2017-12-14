@@ -7,7 +7,7 @@
 
     public interface IPartService
     {
-        Task<IEnumerable<PartAllListingServiceModel>> AllAsync();
+        Task<IEnumerable<PartAllListingServiceModel>> AllAsync(int page = 1, int pageSize = 6);
 
         bool Add(
             string name,
@@ -15,6 +15,8 @@
             Condition condition,
             string imageUrl,
             string userId);
+
+        PartAllListingServiceModel Buy(int id);
 
         void Edit(
             int id,
@@ -28,5 +30,7 @@
         bool Exists(int id);
 
         bool DeletePart(int id);
+
+        int Total();
     }
 }

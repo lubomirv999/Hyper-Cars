@@ -1,0 +1,44 @@
+﻿@model PartFormModel
+@{
+    ViewData["Title"] = "Buy";
+}
+<h2>Buy part</h2>
+<div class="container col-md-12">
+    <img class="col-md-5 img-responsive" height="400" src="@Model.ImageUrl" />
+
+    <div class="container col-md-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price $
+                    </th>
+                    <th>
+                        Condition
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        @Model.Name
+                    </th>
+                    <th>
+                        @Model.Price
+                    </th>
+                    <th>
+                        @Model.Condition
+                    </th>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-primary btn-md" asp-area="Parts" asp-controller="Parts" asp-action="SuccessfullyBought">Buy</a></td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

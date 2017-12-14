@@ -6,12 +6,15 @@
     using Microsoft.AspNetCore.Mvc;
     using Models;
     using Services.Parts;
+    using System;
     using System.Threading.Tasks;
 
     [Area("Parts")]
     [Authorize]
     public class PartsController : Controller
     {
+        private const int PageSize = 6;
+
         private readonly IPartService parts;
 
         public PartsController(IPartService parts)
@@ -19,8 +22,13 @@
             this.parts = parts;
         }
 
-        public async Task<IActionResult> Index()
-            => View(await this.parts.AllAsync());
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 6)
+            => View(new PartListingModel
+            {
+                Parts = await this.parts.AllAsync(page, pageSize),
+                CurrentPage = page,
+                TotalPages = (int)Math.Ceiling(this.parts.Total() / (double)PageSize)
+            });
 
         public IActionResult Create()
             => View();
@@ -49,6 +57,26 @@
             TempData.AddSuccessMessage($"Your part {addPartModel.Name} has been successfully added for sale.");
 
             return this.RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult SuccessfullyBought()
+        {
+            TempData.AddSuccessMessage($"You have successfully bought your wanted part.");
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Buy(int id)
+        {
+            var partToBuy = this.parts.Buy(id);
+
+            return View(new PartFormModel
+            {
+                Name = partToBuy.Name,
+                Price = partToBuy.Price,
+                Condition = partToBuy.Condition,
+                ImageUrl = partToBuy.ImageUrl
+            });
         }
 
         public IActionResult Edit(int id)

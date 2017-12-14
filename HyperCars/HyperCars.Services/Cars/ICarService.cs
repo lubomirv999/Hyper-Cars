@@ -7,7 +7,7 @@
 
     public interface ICarService
     {
-        Task<IEnumerable<CarAllListingServiceModel>> AllAsync();
+        Task<IEnumerable<CarAllListingServiceModel>> AllAsync(int page = 1, int pageSize = 6);
 
         bool Add(
             string model,
@@ -20,6 +20,8 @@
             string color,
             string imageUrl,
             string userId);
+
+        CarAllListingServiceModel Buy(int id);
 
         void Edit(
             int id,
@@ -38,5 +40,7 @@
         bool Exists(int id);
 
         bool DeleteCar(int id);
+
+        int Total();
     }
 }

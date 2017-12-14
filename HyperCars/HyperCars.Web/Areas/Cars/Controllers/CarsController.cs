@@ -6,12 +6,15 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Services.Cars;
+    using System;
     using System.Threading.Tasks;
 
     [Area("Cars")]
     [Authorize]
     public class CarsController : Controller
-    {        
+    {
+        private const int PageSize = 6;
+
         private readonly ICarService cars;
 
         public CarsController(ICarService cars)
@@ -19,8 +22,13 @@
             this.cars = cars;
         }
 
-        public async Task<IActionResult> Index()
-            => View(await this.cars.AllAsync());
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 6)
+            => View(new CarListingModel
+            {
+                Cars = await this.cars.AllAsync(page, pageSize),
+                CurrentPage = page,
+                TotalPages = (int)Math.Ceiling(this.cars.Total() / (double)PageSize)
+            });
 
         public IActionResult Create()
             => View();
@@ -54,6 +62,31 @@
 
             return this.RedirectToAction(nameof(Index));
         }
+
+        public IActionResult SuccessfullyBought()
+        {
+            TempData.AddSuccessMessage($"You have successfully bought your wanted car.");
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Buy(int id)
+        {
+            var carToBuy = this.cars.Buy(id);
+
+            return View(new CarFormModel
+            {
+                Model = carToBuy.Model,
+                Price = carToBuy.Price,
+                BodyType = carToBuy.BodyType,
+                TypeOfTransmission = carToBuy.TypeOfTransmission,
+                TravelledDistance = carToBuy.TravelledDistance,
+                ProductionYear = carToBuy.ProductionYear,
+                HorsePower = carToBuy.HorsePower,
+                Color = carToBuy.Color,
+                ImageUrl = carToBuy.ImageUrl
+            });
+        }        
 
         public IActionResult Edit(int id)
         {
