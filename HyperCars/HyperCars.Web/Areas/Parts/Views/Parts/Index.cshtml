@@ -16,17 +16,17 @@
 
 <ul class="pagination pagination-lg">
     <li class="page-item @previousDisabled">
-        <a class="page-link @previousDisabled" href="Parts/Index?page=@Model.PreviousPage" aria-label="Previous">
+        <a class="page-link @previousDisabled" href="/Parts/Parts/Index?page=@Model.PreviousPage" aria-label="Previous">
             <span aria-hidden="true">«</span>
             <span class="sr-only">Previous</span>
         </a>
     </li>
     @for (int i = 1; i <= Model.TotalPages; i++)
     {
-        <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty)"><a class="page-link" href="Parts/Index?page=@i">@i</a></li>
+        <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty)"><a class="page-link" href="/Parts/Parts/Index?page=@i">@i</a></li>
     }
     <li class="page-item @nextDisabled">
-        <a class="page-link @nextDisabled" href="Parts/Index?page=@Model.NextPage" aria-label="Next">
+        <a class="page-link @nextDisabled" href="/Parts/Parts/Index?page=@Model.NextPage" aria-label="Next">
             <span aria-hidden="true">»</span>
             <span class="sr-only">Next</span>
         </a>
