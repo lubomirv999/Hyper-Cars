@@ -1,5 +1,7 @@
-﻿namespace HyperCars.Web
+﻿namespace HyperCars.Common
 {
+    using System;
+
     public class WebConstants
     {
         public const string AdministratorRole = "Administrator";

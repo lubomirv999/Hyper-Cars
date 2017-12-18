@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Web", "HyperCars.Web\HyperCars.Web.csproj", "{01B3A9F6-EC78-45AF-91D1-92E9A64CDC9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Web", "HyperCars.Web\HyperCars.Web.csproj", "{01B3A9F6-EC78-45AF-91D1-92E9A64CDC9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Data", "HyperCars.Data\HyperCars.Data.csproj", "{FC3C798A-A24C-4DB9-9AD2-F8CFC34A675A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Data", "HyperCars.Data\HyperCars.Data.csproj", "{FC3C798A-A24C-4DB9-9AD2-F8CFC34A675A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Services", "HyperCars.Services\HyperCars.Services.csproj", "{DBDC63F1-1472-4F15-8EDE-5590E61EAADF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Services", "HyperCars.Services\HyperCars.Services.csproj", "{DBDC63F1-1472-4F15-8EDE-5590E61EAADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Core", "HyperCars.Core\HyperCars.Core.csproj", "{CA95641E-AAFE-4273-9021-DDC2C3BF686F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Core", "HyperCars.Core\HyperCars.Core.csproj", "{CA95641E-AAFE-4273-9021-DDC2C3BF686F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Common", "HyperCars.Common\HyperCars.Common.csproj", "{2206C105-84B5-4E81-A14A-B26E0F898E79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CA95641E-AAFE-4273-9021-DDC2C3BF686F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA95641E-AAFE-4273-9021-DDC2C3BF686F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA95641E-AAFE-4273-9021-DDC2C3BF686F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

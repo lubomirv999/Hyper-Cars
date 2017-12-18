@@ -1,7 +1,8 @@
 ﻿namespace HyperCars.Web.Infrastructure.Extensions
 {
-    using HyperCars.Data;
-    using HyperCars.Data.Models;
+    using Common;
+    using Data;
+    using Data.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;

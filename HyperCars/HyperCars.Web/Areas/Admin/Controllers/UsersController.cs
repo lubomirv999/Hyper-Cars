@@ -1,5 +1,6 @@
 ﻿namespace HyperCars.Web.Areas.Admin.Controllers
 {
+    using Common;
     using Data.Models;
     using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Authorization;
