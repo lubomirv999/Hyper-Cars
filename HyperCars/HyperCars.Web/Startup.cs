@@ -12,6 +12,8 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
+    using static HyperCars.Common.WebConstants;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -36,6 +38,18 @@
                 })
                 .AddEntityFrameworkStores<HyperCarsDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = FacebookAppId;
+                facebookOptions.AppSecret = FacebookAppSecret;
+            });
+
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = GoogleAppId;
+                googleOptions.ClientSecret = GoogleAppSecret;
+            });
 
             services.AddAutoMapper();
 
