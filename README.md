@@ -14,11 +14,9 @@ Hyper Cars is my individual project for C# MVC Frameworks - ASP.NET Core - Octob
 * Database - **Microsoft SQL Server**
 * Database Access - **Entity Framework Core**
 * MVC Areas - areas for better code quality
-* Theme - (todo)
 * Responsive design - Bootstrap
 * Users and Roles = ASP.NET Identity System.
 * AJAX - load data async (optional)
-* Unit Tests (todo)
 * Error handling and data validation - Client and Server side
 * Dependency Injection
 * AutoМapping
@@ -38,9 +36,9 @@ Hyper Cars is my individual project for C# MVC Frameworks - ASP.NET Core - Octob
 ### Tables and relations:
 
 #### Cars:
-* Id, Model, Price, BodyType, Travelled Distance, Type Of Transmission, Year Of Production, Horse Power, Color
+* Id, Model, Price, BodyType, Travelled Distance, Type Of Transmission, Production Year, Horse Power, Color, ImageUrl
 #### Parts:
-* Id, Name, Price, Condition, Model
+* Id, Name, Price, Condition, ImageUrl
 #### Customers:
 * Default ASP.NET Identity System Modified
 #### Relations
@@ -55,8 +53,6 @@ Hyper Cars is my individual project for C# MVC Frameworks - ASP.NET Core - Octob
 ### Anonymous users are able to
 * Register
 * Login
-* View Cars
-* View Parts
 
 ### Logged in users are able to
 * Create car for sale (Full CRUD on it)
@@ -65,7 +61,7 @@ Hyper Cars is my individual project for C# MVC Frameworks - ASP.NET Core - Octob
 * Buy part
 
 ### Administrators are able to
-* See Admin panel - Create users
+* See Admin panel - Set users in roles
 
 ### Deadline
 * Project should be completed before 22 December 2017
