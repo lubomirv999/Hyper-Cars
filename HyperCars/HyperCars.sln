@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Services", "Hyper
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Core", "HyperCars.Core\HyperCars.Core.csproj", "{CA95641E-AAFE-4273-9021-DDC2C3BF686F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Common", "HyperCars.Common\HyperCars.Common.csproj", "{2206C105-84B5-4E81-A14A-B26E0F898E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperCars.Common", "HyperCars.Common\HyperCars.Common.csproj", "{2206C105-84B5-4E81-A14A-B26E0F898E79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperCars.Test", "HyperCars.Test\HyperCars.Test.csproj", "{1292C7AD-0F44-44CB-865F-75E2E465AF28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2206C105-84B5-4E81-A14A-B26E0F898E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1292C7AD-0F44-44CB-865F-75E2E465AF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1292C7AD-0F44-44CB-865F-75E2E465AF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1292C7AD-0F44-44CB-865F-75E2E465AF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1292C7AD-0F44-44CB-865F-75E2E465AF28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
